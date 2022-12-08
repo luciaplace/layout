@@ -104,55 +104,74 @@ class _MyAppState extends State<MyApp> {
                             itemCount: 8,
                             scrollDirection: Axis.horizontal,
                             itemBuilder: (context, i) {
-                              return Stack(
-                                children : [
-                                  SvgPicture.asset("assets/images/box_1.svg",
-                                  width: 150,
-                                  height: 230,),
-                                  GestureDetector(
-                                  child: Container(
-                                    margin: EdgeInsets.only(right: 7),
-                                    decoration: BoxDecoration(border: Border.all(color: Colors.blue)),
-                                    width: 160,
-                                    height:230,
-                                    child: Padding(
-                                      padding: const EdgeInsets.fromLTRB(5,0,5,0),
-                                      child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                        children:  [
-                                          Stack(
-                                            children: [ Container(
-                                              decoration: BoxDecoration(border:Border.all(color: Colors.black) ),
-                                              height: 140,
-                                              width: 250,
-                                              child: Image.asset('assets/images/drink_image.png'),
-                                            ),
-                                              Container(
-                                                width:double.infinity,
-                                                height:140,
-                                                decoration : BoxDecoration(border: Border.all(color: Colors.blue)),
-                                                child: Align(
-                                                  alignment: Alignment.bottomRight,
-                                                  child: IconButton(
-                                                    icon: Icon(Icons.heart_broken_rounded),
-                                                    onPressed: (){},
-                                                  ),
+                              return Container(
+                                height: 250,
+                                decoration: BoxDecoration(border: Border.all(color: Colors.green)),
+                                child:Stack(
+                                  children:[
+                                    Align(
+                                      child: SvgPicture.asset("assets/images/rank.svg",
+                                        width: 20,
+                                        height: 20,),
+                                      alignment: AlignmentDirectional(3.0,0.5),
+                                    ),
+                                    Align(
+                                      alignment: AlignmentDirectional(0.0,1.0),
+                                      child: Stack(
+                                          children : [
+                                            SvgPicture.asset("assets/images/box_1.svg",
+                                            width: 150,
+                                            height: 230,),
+
+                                            GestureDetector(
+                                            child: Container(
+                                              margin: EdgeInsets.only(right: 7),
+                                              decoration: BoxDecoration(border: Border.all(color: Colors.blue)),
+                                              width: 160,
+                                              height:230,
+                                              child: Padding(
+                                                padding: const EdgeInsets.fromLTRB(5,0,5,0),
+                                                child: Column(
+                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                  mainAxisSize: MainAxisSize.max,
+                                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                                  children:  [
+                                                    Stack(
+                                                      children: [ Container(
+                                                        decoration: BoxDecoration(border:Border.all(color: Colors.black) ),
+                                                        height: 140,
+                                                        width: 250,
+                                                        child: Image.asset('assets/images/drink_image.png'),
+                                                      ),
+                                                        Container(
+                                                          width:double.infinity,
+                                                          height:140,
+                                                          decoration : BoxDecoration(border: Border.all(color: Colors.blue)),
+                                                          child: Align(
+                                                            alignment: Alignment.bottomRight,
+                                                            child: IconButton(
+                                                              icon: Icon(Icons.heart_broken_rounded),
+                                                              onPressed: (){},
+                                                            ),
+                                                          ),
+                                                        ),
+                                                   ]),
+                                                    Text("술이름", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.black),),
+                                                    Text("술 회사이름",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13, color: Colors.black38)),
+                                                    Text("생산지",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13, color: Colors.black38)),
+
+                                                    Text("도수",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13, color: Colors.black38)),
+                                                  ],
                                                 ),
                                               ),
-                                         ]),
-                                          Text("술이름", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.black),),
-                                          Text("술 회사이름",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13, color: Colors.black38)),
-                                          Text("생산지",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13, color: Colors.black38)),
-
-                                          Text("도수",style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13, color: Colors.black38)),
-                                        ],
-                                      ),
+                                            ),
+                                          ),
+                                        ]),
                                     ),
-                                  ),
-                                ),
-                              ]);
+                                ]),
+
+                                );
+
                             }),
                       ),
                     ],
