@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:layout/style/common_style.dart' as style;
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
-as smooth_page_indicator;
-import 'package:convex_bottom_bar/convex_bottom_bar.dart';
+    as smooth_page_indicator;
+import 'package:get/get.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MaterialApp(home: MyApp()));
 }
 
 class MyApp extends StatefulWidget {
@@ -44,7 +44,7 @@ class _MyAppState extends State<MyApp> {
           actions: [
             IconButton(
                 icon:
-                SvgPicture.asset("assets/images/mainpage1/icon_search.svg"),
+                    SvgPicture.asset("assets/images/mainpage1/icon_search.svg"),
                 onPressed: () {
                   print("mainbody");
                 })
@@ -62,7 +62,7 @@ class _MyAppState extends State<MyApp> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
-                        margin: EdgeInsets.only(top: 20),
+                        margin: EdgeInsets.only(top: 10),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -82,7 +82,7 @@ class _MyAppState extends State<MyApp> {
                                   color: Colors.orange),
                             ),
                             SizedBox(
-                              width: 130,
+                              width: 105,
                             ),
                             TextButton(
                                 onPressed: () {},
@@ -104,7 +104,7 @@ class _MyAppState extends State<MyApp> {
                                   fontWeight: FontWeight.bold,
                                   color: Colors.black45))),
                       Container(
-                        margin: EdgeInsets.only(top: 15),
+                        margin: EdgeInsets.only(top: 8),
                         height: 250,
                         child: ListView.builder(
                             itemCount: 8,
@@ -112,139 +112,145 @@ class _MyAppState extends State<MyApp> {
                             itemBuilder: (context, i) {
                               return Container(
                                 height: 250,
-                                decoration: BoxDecoration(
-                                    border: Border.all(color: Colors.green)),
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      height: 15,
-                                      child: Align(
-                                        alignment: Alignment.topLeft,
-                                        child: SvgPicture.asset(
-                                          "assets/images/mainpage1/rank.svg",
-                                          width: 20,
-                                          height: 20,
-                                        ),
+                                width: 166,
+
+                                child: Stack(children: [
+                                  Column(
+                                    children: [
+                                      Container(
+                                        height: 18,
+
                                       ),
-                                    ),
-                                    Stack(children: [
-                                      Align(
-                                        alignment:
-                                        AlignmentDirectional(0.0, 1.0),
-                                        child: Stack(children: [
-                                          SvgPicture.asset(
-                                            "assets/images/mainpage1/box_1.svg",
-                                            width: 150,
-                                            height: 230,
-                                          ),
-                                          GestureDetector(
-                                            child: Container(
-                                              margin: EdgeInsets.only(right: 7),
-                                              decoration: BoxDecoration(
-                                                  border: Border.all(
-                                                      color: Colors.blue)),
-                                              width: 160,
+                                      Stack(children: [
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 1.0),
+                                          child: Stack(children: [
+                                            SvgPicture.asset(
+                                              "assets/images/mainpage1/box_1.svg",
+                                              width: 150,
                                               height: 230,
-                                              child: Padding(
-                                                padding:
-                                                const EdgeInsets.fromLTRB(
-                                                    5, 0, 5, 0),
-                                                child: Column(
-                                                  crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                                  mainAxisSize:
-                                                  MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceAround,
-                                                  children: [
-                                                    Stack(children: [
-                                                      Container(
-                                                        decoration: BoxDecoration(
-                                                            border: Border.all(
-                                                                color: Colors
-                                                                    .black)),
-                                                        height: 140,
-                                                        width: 250,
-                                                        child: Image.asset(
-                                                            'assets/images/mainpage1/drink_image.png'),
-                                                      ),
-                                                      Container(
-                                                        width: double.infinity,
-                                                        height: 140,
-                                                        decoration: BoxDecoration(
-                                                            border: Border.all(
-                                                                color: Colors
-                                                                    .blue)),
-                                                        child: Align(
-                                                          alignment: Alignment
-                                                              .bottomRight,
-                                                          child: IconButton(
-                                                            icon: Icon(Icons
-                                                                .heart_broken_rounded),
-                                                            onPressed: () {},
+                                            ),
+                                            GestureDetector(
+                                              child: Container(
+                                                margin:
+                                                    EdgeInsets.only(right: 7),
+                                                width: 160,
+                                                height: 230,
+                                                child: Padding(
+                                                  padding:
+                                                      const EdgeInsets.fromLTRB(
+                                                          5, 0, 5, 0),
+                                                  child: Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Stack(children: [
+                                                        Container(
+                                                          height: 140,
+                                                          width: 250,
+                                                          child: Image.asset(
+                                                              'assets/images/mainpage1/drink_image.png'),
+                                                        ),
+                                                        Container(
+                                                          width:
+                                                              double.infinity,
+                                                          height: 140,
+                                                          child: Align(
+                                                            alignment: Alignment
+                                                                .bottomRight,
+                                                            child: IconButton(
+                                                              icon: Icon(Icons.favorite_outline_outlined),
+                                                              onPressed: () {},
+                                                            ),
                                                           ),
                                                         ),
-                                                      ),
-                                                    ]),
-                                                    Padding(
-                                                        padding:
-                                                        EdgeInsets.only(
-                                                            left: 5),
-                                                        child: Column(
-                                                            crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                            children: [
-                                                              Text(
-                                                                "술이름",
-                                                                style: TextStyle(
-                                                                    fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                                    fontSize:
-                                                                    16,
-                                                                    color: Colors
-                                                                        .black),
-                                                              ),
-                                                              Text("술 회사이름",
+                                                      ]),
+                                                      Padding(
+                                                          padding:
+                                                              EdgeInsets.only(
+                                                                  left: 5),
+                                                          child: Column(
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                Text(
+                                                                  "술이름",
                                                                   style: TextStyle(
                                                                       fontWeight:
-                                                                      FontWeight
-                                                                          .bold,
+                                                                          FontWeight
+                                                                              .bold,
                                                                       fontSize:
-                                                                      12,
+                                                                          16,
                                                                       color: Colors
-                                                                          .black38)),
-                                                              Text("생산지",
-                                                                  style: TextStyle(
-                                                                      fontWeight:
-                                                                      FontWeight
-                                                                          .bold,
-                                                                      fontSize:
-                                                                      12,
-                                                                      color: Colors
-                                                                          .black38)),
-                                                              Text("도수",
-                                                                  style: TextStyle(
-                                                                      fontWeight:
-                                                                      FontWeight
-                                                                          .bold,
-                                                                      fontSize:
-                                                                      12,
-                                                                      color: Colors
-                                                                          .black38)),
-                                                            ]))
-                                                  ],
+                                                                          .black),
+                                                                ),
+                                                                Text("술 회사이름",
+                                                                    style: TextStyle(
+                                                                        fontWeight:
+                                                                            FontWeight
+                                                                                .bold,
+                                                                        fontSize:
+                                                                            12,
+                                                                        color: Colors
+                                                                            .black38)),
+                                                                Text("생산지",
+                                                                    style: TextStyle(
+                                                                        fontWeight:
+                                                                            FontWeight
+                                                                                .bold,
+                                                                        fontSize:
+                                                                            12,
+                                                                        color: Colors
+                                                                            .black38)),
+                                                                Text("도수",
+                                                                    style: TextStyle(
+                                                                        fontWeight:
+                                                                            FontWeight
+                                                                                .bold,
+                                                                        fontSize:
+                                                                            12,
+                                                                        color: Colors
+                                                                            .black38)),
+                                                              ]))
+                                                    ],
+                                                  ),
                                                 ),
                                               ),
                                             ),
+                                          ]),
+                                        ),
+                                      ]),
+                                    ],
+                                  ),
+                                  Align(
+                                    alignment: AlignmentDirectional(0.8,-0.91),
+                                    child: Stack(
+                                      children: [
+                                        SvgPicture.asset(
+                                          "assets/images/mainpage1/rank.svg",
+                                          width: 30,
+                                          height: 30,
+                                        ),
+                                        Container(
+                                          width: 31,
+                                          height: 31,
+                                          child: Align(
+                                            alignment:AlignmentDirectional(-0.41,0.0),
+                                            child: Text((i+1).toString()),
                                           ),
-                                        ]),
-                                      ),
-                                    ]),
-                                  ],
-                                ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ]),
                               );
                             }),
                       ),
@@ -327,6 +333,9 @@ class _MyAppState extends State<MyApp> {
                                 width: 320,
                                 child: Row(
                                   children: [
+                                    SizedBox(
+                                      width: 20,
+                                    ),
                                     Expanded(
                                       flex: 75,
                                       child: Text(
@@ -426,89 +435,84 @@ class _MyAppState extends State<MyApp> {
                                 flex: 65,
                                 child: Container(
                                     child: Align(
-                                      alignment: AlignmentDirectional(
-                                          0.0, 0.22),
-                                      child: Container(
-                                        width: double.infinity,
-                                        height: 150,
-                                        child: Column(
-                                          crossAxisAlignment:
+                                  alignment: AlignmentDirectional(0.0, 0.5),
+                                  child: Container(
+                                    width: double.infinity,
+                                    height: 150,
+                                    child: Column(
+                                      crossAxisAlignment:
                                           CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          "쌀쌀해진 날씨,",
+                                          style: TextStyle(fontSize: 15),
+                                        ),
+                                        Row(
                                           children: [
                                             Text(
-                                              "쌀쌀해진 날씨,",
+                                              "글렌파 글래스",
+                                              style: TextStyle(
+                                                  fontSize: 15,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            Text(
+                                              "를 추천해요",
                                               style: TextStyle(fontSize: 15),
-                                            ),
-                                            Row(
-                                              children: [
-                                                Text(
-                                                  "글렌파 글래스",
-                                                  style: TextStyle(
-                                                      fontSize: 15,
-                                                      fontWeight: FontWeight
-                                                          .bold),
-                                                ),
-                                                Text(
-                                                  "를 추천해요",
-                                                  style: TextStyle(
-                                                      fontSize: 15),
-                                                )
-                                              ],
-                                            ),
-                                            Text(""),
-                                            Text("추운 겨울 몸을 녹여줄 위스키",
-                                                style: TextStyle(
-                                                    color: Colors.grey,
-                                                    fontSize: 10,
-                                                    fontWeight: FontWeight
-                                                        .bold)),
-                                            Text(""),
-                                            Text("추천 페어링",
-                                                style: TextStyle(
-                                                    color: Colors.grey,
-                                                    fontSize: 10,
-                                                    fontWeight: FontWeight
-                                                        .bold)),
-                                            Row(
-                                              mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                              children: [
-                                                Container(
-                                                    margin: EdgeInsets.fromLTRB(
-                                                        0, 5, 20, 0),
-                                                    child: Text(
-                                                      "#카나페",
-                                                      style: TextStyle(
-                                                          fontWeight:
-                                                          FontWeight.w500,
-                                                          fontSize: 11),
-                                                    )),
-                                                Container(
-                                                    margin: EdgeInsets.fromLTRB(
-                                                        0, 5, 20, 0),
-                                                    child: Text(
-                                                      "#올리브",
-                                                      style: TextStyle(
-                                                          fontWeight:
-                                                          FontWeight.w500,
-                                                          fontSize: 11),
-                                                    )),
-                                                Container(
-                                                    margin: EdgeInsets.fromLTRB(
-                                                        0, 5, 20, 0),
-                                                    child: Text(
-                                                      "#견과류",
-                                                      style: TextStyle(
-                                                          fontWeight:
-                                                          FontWeight.w500,
-                                                          fontSize: 11),
-                                                    ))
-                                              ],
                                             )
                                           ],
                                         ),
-                                      ),
-                                    ))),
+                                        Text(""),
+                                        Text("추운 겨울 몸을 녹여줄 위스키",
+                                            style: TextStyle(
+                                                color: Colors.grey,
+                                                fontSize: 10,
+                                                fontWeight: FontWeight.bold)),
+                                        Text(""),
+                                        Text("추천 페어링",
+                                            style: TextStyle(
+                                                color: Colors.grey,
+                                                fontSize: 10,
+                                                fontWeight: FontWeight.bold)),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Container(
+                                                margin: EdgeInsets.fromLTRB(
+                                                    0, 5, 20, 0),
+                                                child: Text(
+                                                  "#카나페",
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      fontSize: 11),
+                                                )),
+                                            Container(
+                                                margin: EdgeInsets.fromLTRB(
+                                                    0, 5, 20, 0),
+                                                child: Text(
+                                                  "#올리브",
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      fontSize: 11),
+                                                )),
+                                            Container(
+                                                margin: EdgeInsets.fromLTRB(
+                                                    0, 5, 20, 0),
+                                                child: Text(
+                                                  "#견과류",
+                                                  style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      fontSize: 11),
+                                                ))
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ))),
                           ],
                         ),
                       ),
@@ -524,7 +528,7 @@ class _MyAppState extends State<MyApp> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
-                        margin: const EdgeInsets.only(top: 20),
+                        margin: const EdgeInsets.only(top: 10),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -544,7 +548,7 @@ class _MyAppState extends State<MyApp> {
                                   color: Colors.orange),
                             ),
                             SizedBox(
-                              width: 70,
+                              width: 30,
                             ),
                             TextButton(
                                 onPressed: () {},
@@ -579,7 +583,7 @@ class _MyAppState extends State<MyApp> {
                                     Stack(children: [
                                       Align(
                                         alignment:
-                                        AlignmentDirectional(0.0, 1.0),
+                                            AlignmentDirectional(0.0, 1.0),
                                         child: Stack(children: [
                                           SvgPicture.asset(
                                             "assets/images/mainpage1/box_1.svg",
@@ -593,16 +597,16 @@ class _MyAppState extends State<MyApp> {
                                               height: 230,
                                               child: Padding(
                                                 padding:
-                                                const EdgeInsets.fromLTRB(
-                                                    5, 0, 5, 0),
+                                                    const EdgeInsets.fromLTRB(
+                                                        5, 0, 5, 0),
                                                 child: Column(
                                                   crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
+                                                      CrossAxisAlignment.start,
                                                   mainAxisSize:
-                                                  MainAxisSize.max,
+                                                      MainAxisSize.max,
                                                   mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceAround,
+                                                      MainAxisAlignment
+                                                          .start,
                                                   children: [
                                                     Stack(children: [
                                                       Container(
@@ -618,9 +622,7 @@ class _MyAppState extends State<MyApp> {
                                                           alignment: Alignment
                                                               .bottomRight,
                                                           child: IconButton(
-                                                            icon: const Icon(
-                                                                Icons
-                                                                    .heart_broken_rounded),
+                                                            icon: const Icon(Icons.favorite_outline_outlined),
                                                             onPressed: () {},
                                                           ),
                                                         ),
@@ -628,49 +630,49 @@ class _MyAppState extends State<MyApp> {
                                                     ]),
                                                     Padding(
                                                         padding:
-                                                        const EdgeInsets
-                                                            .only(left: 5),
+                                                            const EdgeInsets
+                                                                .only(left: 5),
                                                         child: Column(
                                                             crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
+                                                                CrossAxisAlignment
+                                                                    .start,
                                                             children: const [
                                                               Text(
                                                                 "술이름",
                                                                 style: TextStyle(
                                                                     fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
+                                                                        FontWeight
+                                                                            .bold,
                                                                     fontSize:
-                                                                    16,
+                                                                        16,
                                                                     color: Colors
                                                                         .black),
                                                               ),
                                                               Text("술 회사이름",
                                                                   style: TextStyle(
                                                                       fontWeight:
-                                                                      FontWeight
-                                                                          .bold,
+                                                                          FontWeight
+                                                                              .bold,
                                                                       fontSize:
-                                                                      12,
+                                                                          12,
                                                                       color: Colors
                                                                           .black38)),
                                                               Text("생산지",
                                                                   style: TextStyle(
                                                                       fontWeight:
-                                                                      FontWeight
-                                                                          .bold,
+                                                                          FontWeight
+                                                                              .bold,
                                                                       fontSize:
-                                                                      12,
+                                                                          12,
                                                                       color: Colors
                                                                           .black38)),
                                                               Text("도수",
                                                                   style: TextStyle(
                                                                       fontWeight:
-                                                                      FontWeight
-                                                                          .bold,
+                                                                          FontWeight
+                                                                              .bold,
                                                                       fontSize:
-                                                                      12,
+                                                                          12,
                                                                       color: Colors
                                                                           .black38)),
                                                             ]))
@@ -691,7 +693,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                 ),
               ),
-
+ //얘기해요
               Container(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
@@ -699,7 +701,7 @@ class _MyAppState extends State<MyApp> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
-                        margin: EdgeInsets.only(top: 20),
+                        margin: EdgeInsets.only(top: 10),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -712,7 +714,7 @@ class _MyAppState extends State<MyApp> {
                                   color: Colors.black),
                             ),
                             const SizedBox(
-                              width: 140,
+                              width: 110,
                             ),
                             TextButton(
                                 onPressed: () {},
@@ -749,7 +751,7 @@ class _MyAppState extends State<MyApp> {
                                         child: Container(
                                           child: Column(
                                             crossAxisAlignment:
-                                            CrossAxisAlignment.start,
+                                                CrossAxisAlignment.start,
                                             children: [
                                               Container(
                                                 width: 180,
@@ -758,15 +760,15 @@ class _MyAppState extends State<MyApp> {
                                                   children: [
                                                     Align(
                                                       alignment:
-                                                      const AlignmentDirectional(
-                                                          0.0, 0.0),
+                                                          const AlignmentDirectional(
+                                                              0.0, 0.0),
                                                       child: Container(
                                                         height: 160,
                                                         width: 160,
                                                         decoration: const BoxDecoration(
                                                             image: DecorationImage(
                                                                 fit:
-                                                                BoxFit.fill,
+                                                                    BoxFit.fill,
                                                                 image: AssetImage(
                                                                     'assets/images/mainpage1/cocktail2.png'))),
                                                       ),
@@ -780,13 +782,13 @@ class _MyAppState extends State<MyApp> {
                                               ),
                                               const Padding(
                                                 padding:
-                                                EdgeInsets.only(left: 3),
+                                                    EdgeInsets.only(left: 3),
                                                 child: Text(
                                                   "잠실 칵테일 맛집 다녀왔어요!\n 추천해요",
                                                   style: TextStyle(
                                                       fontSize: 12,
                                                       fontWeight:
-                                                      FontWeight.bold,
+                                                          FontWeight.bold,
                                                       color: Colors.black54),
                                                 ),
                                               )
@@ -799,7 +801,7 @@ class _MyAppState extends State<MyApp> {
                                         child: Container(
                                           child: Column(
                                             crossAxisAlignment:
-                                            CrossAxisAlignment.start,
+                                                CrossAxisAlignment.start,
                                             children: [
                                               Container(
                                                 width: 180,
@@ -808,15 +810,15 @@ class _MyAppState extends State<MyApp> {
                                                   children: [
                                                     Align(
                                                       alignment:
-                                                      const AlignmentDirectional(
-                                                          0.0, 0.0),
+                                                          const AlignmentDirectional(
+                                                              0.0, 0.0),
                                                       child: Container(
                                                         height: 150,
                                                         width: 150,
                                                         decoration: const BoxDecoration(
                                                             image: DecorationImage(
                                                                 fit:
-                                                                BoxFit.fill,
+                                                                    BoxFit.fill,
                                                                 image: AssetImage(
                                                                     'assets/images/mainpage1/cocktail2.png'))),
                                                       ),
@@ -830,13 +832,13 @@ class _MyAppState extends State<MyApp> {
                                               ),
                                               const Padding(
                                                 padding:
-                                                EdgeInsets.only(left: 3),
+                                                    EdgeInsets.only(left: 3),
                                                 child: Text(
                                                   "잠실 칵테일 맛집 다녀왔어요!",
                                                   style: TextStyle(
                                                       fontSize: 12,
                                                       fontWeight:
-                                                      FontWeight.bold,
+                                                          FontWeight.bold,
                                                       color: Colors.black54),
                                                 ),
                                               )
@@ -858,7 +860,7 @@ class _MyAppState extends State<MyApp> {
                                         child: Container(
                                           child: Column(
                                             crossAxisAlignment:
-                                            CrossAxisAlignment.start,
+                                                CrossAxisAlignment.start,
                                             children: [
                                               Container(
                                                 width: 180,
@@ -867,15 +869,15 @@ class _MyAppState extends State<MyApp> {
                                                   children: [
                                                     Align(
                                                       alignment:
-                                                      const AlignmentDirectional(
-                                                          0.0, 0.0),
+                                                          const AlignmentDirectional(
+                                                              0.0, 0.0),
                                                       child: Container(
                                                         height: 150,
                                                         width: 150,
                                                         decoration: const BoxDecoration(
                                                             image: DecorationImage(
                                                                 fit:
-                                                                BoxFit.fill,
+                                                                    BoxFit.fill,
                                                                 image: AssetImage(
                                                                     'assets/images/mainpage1/cocktail1.png'))),
                                                       ),
@@ -889,13 +891,13 @@ class _MyAppState extends State<MyApp> {
                                               ),
                                               const Padding(
                                                 padding:
-                                                EdgeInsets.only(left: 3),
+                                                    EdgeInsets.only(left: 3),
                                                 child: Text(
                                                   "잠실 칵테일 맛집 다녀왔어요!",
                                                   style: TextStyle(
                                                       fontSize: 12,
                                                       fontWeight:
-                                                      FontWeight.bold,
+                                                          FontWeight.bold,
                                                       color: Colors.black54),
                                                 ),
                                               )
@@ -908,7 +910,7 @@ class _MyAppState extends State<MyApp> {
                                         child: Container(
                                           child: Column(
                                             crossAxisAlignment:
-                                            CrossAxisAlignment.start,
+                                                CrossAxisAlignment.start,
                                             children: [
                                               Container(
                                                 width: 180,
@@ -917,15 +919,15 @@ class _MyAppState extends State<MyApp> {
                                                   children: [
                                                     Align(
                                                       alignment:
-                                                      const AlignmentDirectional(
-                                                          0.0, 0.0),
+                                                          const AlignmentDirectional(
+                                                              0.0, 0.0),
                                                       child: Container(
                                                         height: 150,
                                                         width: 150,
                                                         decoration: const BoxDecoration(
                                                             image: DecorationImage(
                                                                 fit:
-                                                                BoxFit.fill,
+                                                                    BoxFit.fill,
                                                                 image: AssetImage(
                                                                     'assets/images/mainpage1/cocktail1.png'))),
                                                       ),
@@ -939,13 +941,13 @@ class _MyAppState extends State<MyApp> {
                                               ),
                                               const Padding(
                                                 padding:
-                                                EdgeInsets.only(left: 3),
+                                                    EdgeInsets.only(left: 3),
                                                 child: Text(
                                                   "잠실 칵테일 맛집 다녀왔어요!",
                                                   style: TextStyle(
                                                       fontSize: 12,
                                                       fontWeight:
-                                                      FontWeight.bold,
+                                                          FontWeight.bold,
                                                       color: Colors.black54),
                                                 ),
                                               )
@@ -963,21 +965,119 @@ class _MyAppState extends State<MyApp> {
                   ),
                 ),
               ),
+              //하단바
+
               Container(
-                height:130,
-                decoration: BoxDecoration(border: Border.all(color: Colors.pink)),
+                height: 130,
                 child: Stack(
                   children: [
-                    SvgPicture.asset('assets/images/mainpage1/nav_bg.svg', width: double.infinity,height: double.maxFinite,)
+                    SvgPicture.asset(
+                      'assets/images/mainpage1/nav_bg.svg',
+                      width: double.infinity,
+                      height: double.maxFinite,
+                    ),
+                    Align(
+                      alignment: AlignmentDirectional(-0.88, 0.75),
+                      child: IconButton(
+                        icon: SvgPicture.asset(
+                            'assets/images/mainpage1/nav_icon.svg',
+                            width: 50,
+                            height: 50),
+                        onPressed: () {},
+                      ),
+                    ),
+                    Align(
+                      alignment: AlignmentDirectional(-0.45, 0.75),
+                      child: IconButton(
+                        icon: SvgPicture.asset(
+                            'assets/images/mainpage1/nav_icon_2.svg',
+                            width: 50,
+                            height: 50),
+                        onPressed: () {},
+                      ),
+                    ),
+                    Align(
+                        heightFactor: 300,
+                        widthFactor: 300,
+                        alignment: AlignmentDirectional(0.0, -0.1),
+                        child: Container(
+                          width: 80,
+                          height: 80,
+                          child: IconButton(
+                            icon: SvgPicture.asset(
+                              'assets/images/mainpage1/nav_icon_3.svg',
+                              width: 57,
+                              height: 57,
+                            ),
+                            onPressed: () {
+                              showModalBottomSheet(
+                                isScrollControlled: true,
+                                context: context,
+                                shape: const RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.vertical(
+                                    top: Radius.circular(300),
+                                  ),
+                                ),
+                                builder: (context) {
+                                  return Container(
+                                    height: 1300,
+                                    decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                      fit: BoxFit.fitHeight,
+                                      image: AssetImage(
+                                          'assets/images/mainpage1/bricks.png'),
+                                    )),
+                                    child: Stack(
+                                      children: [
+                                        Align(
+                                            alignment: AlignmentDirectional(
+                                                0.0, -0.99),
+                                            child: Container(
+                                              height: 200,
+                                              decoration: BoxDecoration(
+                                                  border: Border.all(
+                                                      color: Colors.black)),
+                                              child: Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, -1.3),
+                                                  child: SvgPicture.asset(
+                                                      'assets/images/mainpage1/light.svg')),
+                                            )),
+                                        Align(
+                                          child: Text("000님의 컬렉션"),
+                                        )
+                                      ],
+                                    ),
+                                  );
+                                },
+                              );
+                            },
+                          ),
+                        )),
+                    Align(
+                      alignment: AlignmentDirectional(0.45, 0.75),
+                      child: IconButton(
+                        icon: SvgPicture.asset(
+                            'assets/images/mainpage1/nav_icon_4.svg'),
+                        onPressed: () {},
+                      ),
+                    ),
+                    Align(
+                      alignment: AlignmentDirectional(0.86, 0.75),
+                      child: IconButton(
+                        icon: SvgPicture.asset(
+                            'assets/images/mainpage1/nav_icon_5.svg'),
+                        onPressed: () {},
+                      ),
+                    )
                   ],
                 ),
               )
             ]),
           ),
         ),
-
       ),
     );
   }
 }
-
